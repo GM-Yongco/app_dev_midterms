@@ -4,7 +4,7 @@ export const log_in = (req ,res) => {
     const users = get_users()
 
     // console.log(users)
-    console.log(req.body)
+    // console.log(req.body)
 
     const found_user = users.find(user => user.username === req.body.username)
     
@@ -50,7 +50,7 @@ export const register_func = (req ,res) =>{
 
 export const profile_func = (req ,res) =>{
     //uses the username as a token in the header
-    console.log("it went in senpai")
+    // console.log("it went in senpai")
 
     const users = get_users();
     const found_user = users.find(user => user.username === req.headers["auth_username"])
