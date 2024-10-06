@@ -49,14 +49,14 @@ export const register_func = (req ,res) =>{
 }
 
 export const profile_func = (req ,res) =>{
+    //uses the username as a token in the header
+    console.log("it went in senpai")
+
     const users = get_users();
-
-    const found_user = users.find(user => user.username === req.body.username)
-    if(found_user !== undefined){
-        return res.send("user already exists")
+    const found_user = users.find(user => user.username === req.headers["auth_username"])
+    if(!found_user){
+        return res.send("user does not exist")
     }
-
     
-
     res.send(found_user)
 }
